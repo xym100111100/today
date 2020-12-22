@@ -1,0 +1,13 @@
+.aa.data-v-b237504c {
+  width: 375rpx;
+  height: 30rpx;
+  background: yellow;
+  float: left;
+}
+.bb.data-v-b237504c {
+  width: 375rpx;
+  height: 30rpx;
+  background: red;
+  float: left;
+}
+
