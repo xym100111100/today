@@ -6,7 +6,7 @@
 			<view class="td-address__main">
 				<view class="td-address__title">
 					<text class="ao-icon-dizhi_ td-font--basic"></text>
-					东盟商务区地铁一店
+					  幸福里
 					<text class="ao-icon-arrow-right"></text>
 				</view>
 				<view class="td-address__right" @click="toggleTheme"><text :class="zhutiIcon">2</text></view>
@@ -341,17 +341,6 @@
 				</view>
 			</view>
 		</view>
-		<view>
-			<view class="aa" >
-				ddd
-			</view>
-			
-			<view class="bb" >
-				ddd3
-			</view>
-		</view>
-		
-
 	
 		<view class="td-footer">
 			<view class="td-footer__item" v-for="item in footDatas" :key="item.value" @click="clickFoot(item)" :class="{ 'is-active': footIndex === item.value }">
@@ -367,6 +356,7 @@ export default {
 
 	data() {
 		return {
+			title:'',
 			indicatorDots: true,
 			autoplay: true,
 			interval: 2000,
@@ -438,10 +428,22 @@ export default {
 		}
 	 },
 	 created(){
-		 // this.$http.get('user').then((res)=>{
-			//  debugger
+		 this.$http.get('login').then((res)=>{
+			 console.log(res)
 			 
+			 
+		 }).catch((error)=>{
+			  console.log(error)
+		 })
+		 
+		 // this.$http.post('login',{nane:'杰克'}).then((res)=>{
+		 // 			 console.log(res)
+		 			 
+		 // }).catch((error)=>{
+		 // 			  console.log(res)
 		 // })
+		 
+		 
 		 
 	 },
 	methods: {
@@ -486,19 +488,7 @@ export default {
 	height: 100%;
 }
 	
-.aa{
-	width: 375rpx;
-	height: 30px;
-	background: yellow;
-	float: left;
-}
 
-.bb{
-	width:375rpx;
-	height: 30rpx;
-	 background: red;
-	 float: left;
-}
 uni-image {
 	height: 100%;
 	width: 100%;

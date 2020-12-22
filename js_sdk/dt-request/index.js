@@ -17,6 +17,7 @@ import pathToRegexp from "path-to-regexp";
 
 import config from "./config";
 
+
 const MODE_NAME = 'NAME';
 // const MODE_URI = 'URI';
 
@@ -79,18 +80,50 @@ Http.prototype.request = function(options) {
 	const self = this;
 	return new Promise((resolve, reject) => {
 		options.complete = (response) => {
-			const statusCode = response.statusCode;
+
+			const {
+				statusCode,
+				msg
+			} = response;
 
 			let newResponse = response;
 			if (typeof self.interceptor.response === "function") {
 				newResponse = self.interceptor.response(newResponse);
 			}
+			if (statusCode == 401) {
+				uni.showModal({
+					title: '提示',
+					content: '登录过期，请重新登录',
+					success: function(res) {
+						if (res.confirm) {
+							uni.reLaunch({
+								url: '/pages/login/login'
+							})
+						} else if (res.cancel) {
 
-			if (statusCode == 200) {
-				resolve(newResponse);
-			} else {
+						}
+					}
+				});
+
+			} else if (statusCode == 500) {
+
+				uni.showToast({
+					title: msg ? msg : '服务器出错',
+					duration: 1000
+				});
 				reject(newResponse);
+
+			} else if (statusCode == 200) {
+				resolve(newResponse.data);
+
 			}
+			
+			uni.showToast({
+				title:msg ? msg :"请求出错",
+				duration: 1000
+			});
+		    console.log(newResponse)
+			reject(newResponse);
 		};
 
 		const newOptions = Object.assign({}, self.options, options);
@@ -186,17 +219,20 @@ export {
  * @return {Object}
  */
 function getApi(apis, name, params) {
+
 	if (apis.length <= 0 || !name) {
 		return null;
 	}
 	// let api = apis[name];
 	let _api = apis[name];
-	let api = {..._api}; //必须拷贝一份，否则第一次请求的参数会变成缓存，影响接下去的请求
+	let api = { ..._api
+	}; //必须拷贝一份，否则第一次请求的参数会变成缓存，影响接下去的请求
 	let uri = api.uri;
 
 	let keys = [];
+
 	pathToRegexp(uri, keys);
-	
+
 
 	if (keys.length > 0) {
 		keys.forEach(key => {

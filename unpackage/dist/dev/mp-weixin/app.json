@@ -1,7 +1,9 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/login/register",
     "pages/home/index",
-    "pages/login/login"
+    "pages/login/terms"
   ],
   "subPackages": [],
   "window": {

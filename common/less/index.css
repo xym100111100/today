@@ -2328,3 +2328,14 @@ body {
 .theme-dark .td-footer .td-footer__item.is-active i {
   font-size: 32px;
 }
+
+
+.theme-default .bm-login {
+	height: 100rpx;
+	width: 700rpx;
+	background: red;
+}
+
+.theme-default .bm-login  .bm-login_logo{
+	
+}

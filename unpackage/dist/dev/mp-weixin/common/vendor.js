@@ -9250,6 +9250,655 @@ var actions = {};var _default =
     if(false) { var cssReload; }
   
 
+/***/ }),
+/* 15 */
+/*!******************************************************************************!*\
+  !*** /Users/admin/companyUniAppCode/today-uniapp/js_sdk/dt-request/index.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.Http = Http;exports.HttpWidget = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _pathToRegexp = _interopRequireDefault(__webpack_require__(/*! path-to-regexp */ 16));
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./config */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
+
+
+var MODE_NAME = 'NAME';
+// const MODE_URI = 'URI';
+
+// 请求任务
+var task = null;
+
+function Http() {var
+
+  baseUrl =
+
+
+
+
+  _config.default.baseUrl,mode = _config.default.mode,apis = _config.default.apis,interceptor = _config.default.interceptor,options = _config.default.options;
+
+  this.baseUrl = baseUrl;
+  this.mode = mode || MODE_NAME;
+  this.apis = apis || [];
+  this.interceptor = interceptor || {
+    request: null,
+    response: null };
+
+  this.options = Object.assign({}, {
+    data: {},
+    header: {},
+    method: "GET",
+    dataType: "json",
+    responseType: "text",
+    success: function success() {},
+    fail: function fail() {},
+    complete: function complete() {} },
+
+  options);
+
+}
+
+// 中断请求
+Http.prototype.abort = function () {
+  if (task) {
+    task.abort();
+  }
+};
+
+Http.prototype.request = function (options) {
+  var api = null;
+  var baseUrl = typeof options.baseUrl === "string" ? options.baseUrl : this.baseUrl;
+  if (this.mode === MODE_NAME) {
+    api = getApi(this.apis, options.name, options.params);
+    if (api !== null) {
+      delete options.name;
+      delete options.params;
+      options.url = baseUrl + api.uri;
+    }
+  }
+
+  if (!isFullUrl(options.url)) {
+    options.url = baseUrl + options.url;
+  }
+
+  var self = this;
+  return new Promise(function (resolve, reject) {
+    options.complete = function (response) {var
+
+
+      statusCode =
+
+      response.statusCode,msg = response.msg;
+
+      var newResponse = response;
+      if (typeof self.interceptor.response === "function") {
+        newResponse = self.interceptor.response(newResponse);
+      }
+      if (statusCode == 401) {
+        uni.showModal({
+          title: '提示',
+          content: '登录过期，请重新登录',
+          success: function success(res) {
+            if (res.confirm) {
+              uni.reLaunch({
+                url: '/pages/login/login' });
+
+            } else if (res.cancel) {
+
+            }
+          } });
+
+
+      } else if (statusCode == 500) {
+
+        uni.showToast({
+          title: msg ? msg : '服务器出错',
+          duration: 1000 });
+
+        reject(newResponse);
+
+      } else if (statusCode == 200) {
+        resolve(newResponse.data);
+
+      }
+
+      uni.showToast({
+        title: msg ? msg : "请求出错",
+        duration: 1000 });
+
+      console.log(newResponse);
+      reject(newResponse);
+    };
+
+    var newOptions = Object.assign({}, self.options, options);
+
+    if (typeof self.interceptor.request === "function") {
+      if (self.interceptor.request(newOptions, api) === false) {
+        reject(new Error("Unauthorized request"));
+      }
+    }
+
+    task = uni.request(newOptions);
+  });
+};
+
+['head', 'options', 'delete'].forEach(function (method) {
+  Http.prototype[method] = function (name, params) {
+    var options = {};
+
+    if (typeof name === "object") {
+      options = name;
+      return this.request(
+      Object.assign(options, {
+        method: method.toUpperCase() }));
+
+
+    }
+
+    options.method = method.toUpperCase();
+    if (this.mode === MODE_NAME) {
+      options.name = name;
+      options.params = params;
+
+      return this.request(options);
+    }
+
+    options.url = name;
+    if (typeof params === 'object') {
+      options = Object.assign({}, options, params);
+    }
+
+    return this.request(options);
+  };
+});
+
+['get', 'post', 'put', 'patch'].forEach(function (method) {
+  Http.prototype[method] = function (name, data, params) {
+    var options = {};
+
+    if (typeof name === "object") {
+      options = name;
+      return this.request(
+      Object.assign(options, {
+        method: method.toUpperCase() }));
+
+
+    }
+
+    options.method = method.toUpperCase();
+    if (this.mode === MODE_NAME) {
+      options.name = name;
+      options.data = data;
+      options.params = params;
+      return this.request(options);
+    }
+
+    options.url = name;
+    options.data = data;
+    if (typeof params === 'object') {
+      options = Object.assign({}, options, params);
+    }
+
+    return this.request(options);
+  };
+});
+
+/**
+     * http widget class
+     */var
+HttpWidget = /*#__PURE__*/function () {function HttpWidget() {_classCallCheck(this, HttpWidget);}_createClass(HttpWidget, [{ key: "install", value: function install(
+    Vue) {
+      Vue.prototype.$http = new Http();
+    } }]);return HttpWidget;}();exports.HttpWidget = HttpWidget;
+
+
+
+
+
+
+/**
+                                                                  * Get api object by name. URI will be replaced by data and params
+                                                                  * @param  {String} name    Api name
+                                                                  * @param  {Object} params  Request params
+                                                                  * @return {Object}
+                                                                  */
+function getApi(apis, name, params) {
+
+  if (apis.length <= 0 || !name) {
+    return null;
+  }
+  // let api = apis[name];
+  var _api = apis[name];
+  var api = _objectSpread({}, _api);
+  //必须拷贝一份，否则第一次请求的参数会变成缓存，影响接下去的请求
+  var uri = api.uri;
+
+  var keys = [];
+
+  (0, _pathToRegexp.default)(uri, keys);
+
+
+  if (keys.length > 0) {
+    keys.forEach(function (key) {
+      if (!params[key.name]) {
+        throw new Error("API name: ".concat(
+        name, ". You are using dynamic params but ").concat(
+        key.name, " not existed in your params"));
+
+
+      }
+      uri = uri.replace(":".concat(key.name), params[key.name] || "undefined");
+    });
+  }
+
+  return Object.assign(api, {
+    uri: uri });
+
+}
+
+function isFullUrl(url) {
+  return /(http|https):\/\/([\w.]+\/?)\S*/.test(url);
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 16 */
+/*!**********************************************!*\
+  !*** ./node_modules/path-to-regexp/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Expose `pathtoRegexp`.
+ */
+
+module.exports = pathtoRegexp;
+
+/**
+ * Match matching groups in a regular expression.
+ */
+var MATCHING_GROUP_REGEXP = /\((?!\?)/g;
+
+/**
+ * Normalize the given path string,
+ * returning a regular expression.
+ *
+ * An empty array should be passed,
+ * which will contain the placeholder
+ * key names. For example "/user/:id" will
+ * then contain ["id"].
+ *
+ * @param  {String|RegExp|Array} path
+ * @param  {Array} keys
+ * @param  {Object} options
+ * @return {RegExp}
+ * @api private
+ */
+
+function pathtoRegexp(path, keys, options) {
+  options = options || {};
+  keys = keys || [];
+  var strict = options.strict;
+  var end = options.end !== false;
+  var flags = options.sensitive ? '' : 'i';
+  var extraOffset = 0;
+  var keysOffset = keys.length;
+  var i = 0;
+  var name = 0;
+  var m;
+
+  if (path instanceof RegExp) {
+    while (m = MATCHING_GROUP_REGEXP.exec(path.source)) {
+      keys.push({
+        name: name++,
+        optional: false,
+        offset: m.index
+      });
+    }
+
+    return path;
+  }
+
+  if (Array.isArray(path)) {
+    // Map array parts into regexps and return their source. We also pass
+    // the same keys and options instance into every generation to get
+    // consistent matching groups before we join the sources together.
+    path = path.map(function (value) {
+      return pathtoRegexp(value, keys, options).source;
+    });
+
+    return new RegExp('(?:' + path.join('|') + ')', flags);
+  }
+
+  path = ('^' + path + (strict ? '' : path[path.length - 1] === '/' ? '?' : '/?'))
+    .replace(/\/\(/g, '/(?:')
+    .replace(/([\/\.])/g, '\\$1')
+    .replace(/(\\\/)?(\\\.)?:(\w+)(\(.*?\))?(\*)?(\?)?/g, function (match, slash, format, key, capture, star, optional, offset) {
+      slash = slash || '';
+      format = format || '';
+      capture = capture || '([^\\/' + format + ']+?)';
+      optional = optional || '';
+
+      keys.push({
+        name: key,
+        optional: !!optional,
+        offset: offset + extraOffset
+      });
+
+      var result = ''
+        + (optional ? '' : slash)
+        + '(?:'
+        + format + (optional ? slash : '') + capture
+        + (star ? '((?:[\\/' + format + '].+?)?)' : '')
+        + ')'
+        + optional;
+
+      extraOffset += result.length - match.length;
+
+      return result;
+    })
+    .replace(/\*/g, function (star, index) {
+      var len = keys.length
+
+      while (len-- > keysOffset && keys[len].offset > index) {
+        keys[len].offset += 3; // Replacement length minus asterisk length.
+      }
+
+      return '(.*)';
+    });
+
+  // This is a workaround for handling unnamed matching groups.
+  while (m = MATCHING_GROUP_REGEXP.exec(path)) {
+    var escapeCount = 0;
+    var index = m.index;
+
+    while (path.charAt(--index) === '\\') {
+      escapeCount++;
+    }
+
+    // It's possible to escape the bracket.
+    if (escapeCount % 2 === 1) {
+      continue;
+    }
+
+    if (keysOffset + i === keys.length || keys[keysOffset + i].offset > m.index) {
+      keys.splice(keysOffset + i, 0, {
+        name: name++, // Unnamed matching groups must be consistently linear.
+        optional: false,
+        offset: m.index
+      });
+    }
+
+    i++;
+  }
+
+  // If the path is non-ending, match until the end or a slash.
+  path += (end ? '$' : (path[path.length - 1] === '/' ? '' : '(?=\\/|$)'));
+
+  return new RegExp(path, flags);
+};
+
+
+/***/ }),
+/* 17 */
+/*!*******************************************************************************!*\
+  !*** /Users/admin/companyUniAppCode/today-uniapp/js_sdk/dt-request/config.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _apis = _interopRequireDefault(__webpack_require__(/*! ./apis */ 18));
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var baseUrl;
+// console.log("__dirname------------------");
+// console.log(__dirname);
+if (true) {
+  baseUrl = 'http://localhost:8080/';
+} else {}
+_vue.default.prototype.baseUrl = baseUrl;var _default =
+{
+  // 接口主机地址
+  baseUrl: baseUrl,
+
+  // 模式，默认NAME。NAME：接口名模式；URI：相对地址模式
+  mode: 'NAME',
+  // mode: 'URI',
+
+  // 接口配置
+  apis: _apis.default,
+
+  // 请求默认参数
+  options: {
+    header: {
+      'Content-Type': 'application/json'
+      //'Content-type': 'application/x-www-form-urlencoded',
+    } },
+
+
+
+  // 拦截器
+  interceptor: {
+    // 请求拦截器，返回false可以阻止请求执行
+    request: function request(options, api) {
+
+
+      if (options.method === "GET") {
+        options.data = options.data || {};
+        options.data._version = Date.now();
+        options.data.token = _vue.default.prototype.token;
+        // options.data.token="3278683245487";
+      }
+
+
+      // console.log("options--------------------------------");
+      // console.log(options);
+      // options.from = 'uniapp';
+      return true;
+      // return false;
+    },
+
+    // 响应拦截器
+    response: function response(res) {
+
+
+      if (res.data && res.data.error_code === "ERR-10004") {
+        //保存当前页面的路由
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //跳去登录页
+        uni.redirectTo({
+          url: "/pages/login/login" });
+
+      }
+      return res;
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 18 */
+/*!*****************************************************************************!*\
+  !*** /Users/admin/companyUniAppCode/today-uniapp/js_sdk/dt-request/apis.js ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _user = _interopRequireDefault(__webpack_require__(/*! ./api/user.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           * 接口配置文件
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           * 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           * 键为接口名
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           * 值为接口配置，可以自定义属性
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           */var _default = _objectSpread({},
+
+_user.default);exports.default = _default;
+
+/***/ }),
+/* 19 */
+/*!*********************************************************************************!*\
+  !*** /Users/admin/companyUniAppCode/today-uniapp/js_sdk/dt-request/api/user.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+
+  login: {
+    //登录
+    // uri: 'appLoginValidate',
+    uri: 'h5/static/json/user/userInfo.json' },
+
+  reqPublicKey: {
+    //获取公钥
+    // uri: 'appLogin',
+    uri: 'app/getpublickey' },
+
+
+  getAppUserToken: {
+    //校验token是否过期
+    // uri: 'getAppUserToken',
+    uri: 'app/checkuser' },
+
+  appLogout: {
+    //退出
+    uri: "app/logout" },
+
+  backlogs: {
+    //待办事项
+    uri: 'backlogs' },
+
+  loanoperationinfos: {
+    //获取贷款业务页面的菜单和按钮
+    uri: "loanoperationinfos" },
+
+  reqEnterpriseApplyforms: {
+    //查看企业贷款申请--查看申请单详细 请求方式：http get
+    uri: "enterprise/applyforms/:id",
+    auth: 'required' },
+
+  reqPersonalApplyforms: {
+    //查看个人贷款申请--查看申请单详细 请求方式：http get
+    uri: "personal/applyforms/:id" },
+
+  reqClientconstants: {
+    //获取常量
+    uri: "clientconstants" },
+
+  reqSurveyProjectBaseInfo: {
+    //获取尽调的项目基本信息
+    uri: "surveys/project/:id" },
+
+  reqEnterpriseSurveyMunu: {
+    //获取企业客户的尽调菜单
+    uri: "enterprise/surveymenus/:id" },
+
+  reqPersonalSurveyMunu: {
+    //获取个人客户的尽调菜单
+    uri: "personal/surveymenus/:id" },
+
+  reqSurveysLoanAndPayments: {
+    //获取尽调-借款用途及还款来源分析
+    uri: "surveys/loanandpayments/:id" },
+
+  reqSurveysConclusions: {
+    //获取尽调-项目结论
+    uri: "surveys/conclusions/:id" },
+
+  saveLoan: {
+    //保存申请单
+    uri: "loans/save" },
+
+  submitLoan: {
+    //提交申请单
+    uri: "loans/submit" },
+
+  createSurveys: {
+    //创建尽调
+    uri: "surveys/create" },
+
+  saveSurveys: {
+    //暂存尽调
+    uri: "surveys/save" },
+
+  surveysReview: {
+    //复核员复核尽调
+    uri: "surveys/review" },
+
+  loanDownloadlist: {
+    //打印表单列表
+    uri: "loan/downloadlist/:id" },
+
+  reqLoanClientMaterial: {
+    //请求申请人材料
+    uri: "loan/client/materiallists" },
+
+  uploadLoanClientMaterial: {
+    //上传申请人材料
+    uri: "loan/client/materials/upload" }
+
+
+
+  // 可以设置接口是否需要授权访问
+  // login: {
+  //     uri: "login",
+  //     auth: false
+  // },
+
+  // 支持参数
+  // 'resource.detail': {
+  //     uri: 'resources/:id',
+  //     auth: 'required',
+  // }
+};exports.default = _default;
+
 /***/ })
 ]]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

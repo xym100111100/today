@@ -5,13 +5,9 @@ let baseUrl;
 // console.log("__dirname------------------");
 // console.log(__dirname);
 if (process.env.NODE_ENV === "development") {
-	
-	baseUrl = 'http://192.168.16.155:8080/financial-platform/';
-	
-
+	baseUrl = 'http://localhost:8080/';
 } else {
-	
-	baseUrl = 'http://192.168.16.155:8080/financial-platform/';
+	baseUrl = 'http://192.168.16.155:8080/';
 
 }
 Vue.prototype.baseUrl = baseUrl;
@@ -29,8 +25,8 @@ export default {
 	// 请求默认参数
 	options: {
 		header: {
-			// 'Content-Type': 'application/json',
-			'Content-type': 'application/x-www-form-urlencoded',
+			 'Content-Type': 'application/json',
+			//'Content-type': 'application/x-www-form-urlencoded',
 
 		},
 	},

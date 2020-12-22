@@ -1,20 +1,30 @@
 <template>
 	<view :class="[theme]" class="bm-container">
 		<view class="bm-login">
-			<image class="bm-login__img" src="../../static/images/1.jpg" mode=""></image>
-			<view class="bm-login__text">
+			<image class="bm-login_img" src="../../static/images/1.jpg" mode=""></image>
+			<view class="bm-login_text">
 				<text>
 					东兴便民贸易平台
 				</text>
 			</view>
-			<view class="bm-login__botton">
-				微信用户快捷登录
+			<view class="bm-login-input">
+				
+				<icon type="success" size="16" />
+				<input class="uni-input input " />
+				<!-- <view class="text">
+					<text></text>
+				</view> -->
 			</view>
-			<view class="bm-login__botton"  >
-				<navigator class="item" open-type="navigate" url="/pages/login/register" hover-class="none">
-					手机号码登录/注册
-				</navigator>
+			<view class="bm-login-input">
+				<icon type="success" size="16" /> <input class="uni-input input " />
+				<view class="text">
+					<text>获取验证码</text>
+				</view>
 			</view>
+			<view class="bm-login_botton">
+				注册/登录
+			</view>
+
 			<view class="bm-login-agreement">
 				<icon type="success" size="16" />
 				<text class="text">点击注册或登录即表示您同意 </text>
@@ -60,37 +70,60 @@
 
 		.bm-login {
 			text-align: center;
-			
-			.bm-login__img {
+
+			.bm-login_img {
 				margin-top: 150rpx;
 				height: 250rpx;
 				width: 250rpx;
 				border-radius: 100%;
 			}
 
-			.bm-login__text {
+			.bm-login_text {
 				font-size: 36rpx;
 				font-weight: bold;
 				margin-bottom: 80rpx;
 			}
 
-			.bm-login__botton {
+			.bm-login-input {
+				text-align: left;
+				padding-left: 17rpx;
+				display: flex;
+				align-items: center;
+				background: #e8e2e2;
+				border-radius: 44rpx;
+				overflow: hidden;
+				margin-bottom: 50rpx;
+				height: 90rpx;
+
+				.input {
+					background: #e8e2e2;
+				}
+
+				.text {
+					width: 150rpx;
+					padding: 0 16rpx;
+				}
+			}
+
+			.bm-login_botton {
 				height: 90rpx;
 				border: solid 1px red;
 				line-height: 90rpx;
 				width: 650rpx;
 				border-radius: 10rpx;
 				margin: 0 auto 40rpx;
-				
+
 			}
 
 			.bm-login-agreement {
 				display: flex;
 				height: 60rpx;
 				align-items: center;
+
 				.text {
 					padding-left: 10rpx;
 				}
+
 				.nav-text {
 					color: red;
 				}

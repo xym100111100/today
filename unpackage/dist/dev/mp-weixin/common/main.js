@@ -17,37 +17,37 @@ var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 11));
 
 
 
-__webpack_require__(/*! @/common/less/index.less */ 14);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}_vue.default.config.productionTip = false; //阻止启动生产消息
+__webpack_require__(/*! @/common/less/index.less */ 14);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _dtRequest = __webpack_require__(/*! @/js_sdk/dt-request */ 15);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}_vue.default.config.productionTip = false; //阻止启动生产消息
 _vue.default.prototype.$store = _store.default; //import '@/static/font/iconfont.css';
 // import '@/static/font/iconfont.js'; //引入js，使用svg，可保持多色
 // import './common/less/index.css';
 // import  './components/async-validator-uniapp'; //表单校验
-
 // import  './js_sdk/vee-validate/validate.config';
 // import zh_CN from './js_sdk/vee-validate/dist/locale/zh_CN';
 // import VeeValidate, { Validator } from  './js_sdk/vee-validate';
 // Validator.localize('zh_CN', zh_CN);//使用中文语言
 // Vue.use(VeeValidate);
-
-
-
-_App.default.mpType = 'app';
-// 导入组件
-
-// import {
-// 	HttpWidget
-// } from '@/js_sdk/dt-request';
-
-// Vue.use(new HttpWidget());
-
-// import proMethods from './common/professional.methods.js'
-
-
-var gbv = {
-  num: 0,
-  app: null //vue实例
-};
-_vue.default.prototype.gbv = gbv;
+_App.default.mpType = 'app'; // 导入组件
+_vue.default.use(new _dtRequest.HttpWidget()); // import proMethods from './common/professional.methods.js'
+var gbv = { num: 0, app: null //vue实例
+};_vue.default.prototype.gbv = gbv;
 _vue.default.prototype.token = "";
 // Vue.prototype.proMethods = proMethods;
 _vue.default.prototype.lastRoute = ""; //跳转到登录页之前的路由

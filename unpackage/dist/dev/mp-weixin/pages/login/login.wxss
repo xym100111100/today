@@ -1,13 +1,54 @@
-.aa.data-v-b237504c {
-  width: 375rpx;
-  height: 30rpx;
-  background: yellow;
-  float: left;
+.bm-container.data-v-b237504c {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
-.bb.data-v-b237504c {
-  width: 375rpx;
-  height: 30rpx;
-  background: red;
-  float: left;
+.bm-container .bm-login.data-v-b237504c {
+  text-align: center;
+}
+.bm-container .bm-login .bm-login__img.data-v-b237504c {
+  margin-top: 150rpx;
+  height: 250rpx;
+  width: 250rpx;
+  -webkit-border-radius: 100%;
+          border-radius: 100%;
+}
+.bm-container .bm-login .bm-login__text.data-v-b237504c {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 80rpx;
+}
+.bm-container .bm-login .bm-login__botton.data-v-b237504c {
+  height: 90rpx;
+  border: solid 1rpx red;
+  line-height: 90rpx;
+  width: 650rpx;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  margin: 0 auto 40rpx;
+}
+.bm-container .bm-login .bm-login-agreement.data-v-b237504c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  height: 60rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.bm-container .bm-login .bm-login-agreement .text.data-v-b237504c {
+  padding-left: 10rpx;
+}
+.bm-container .bm-login .bm-login-agreement .nav-text.data-v-b237504c {
+  color: red;
 }
 
