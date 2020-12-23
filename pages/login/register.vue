@@ -8,25 +8,25 @@
 				</text>
 			</view>
 			<view class="bm-login-input">
-				
-				<icon type="success" size="16" />
-				<input class="uni-input input " />
+				<image class="icon" src="../../static/images/commen/user.png" mode=""></image>
+				<input class="uni-input input " placeholder="请输入手机号码" />
 				<!-- <view class="text">
 					<text></text>
 				</view> -->
 			</view>
 			<view class="bm-login-input">
-				<icon type="success" size="16" /> <input class="uni-input input " />
+				<image class="icon" src="../../static/images/commen/password.png" mode=""></image>
+				
+				<input placeholder="请输入短信验证码" class="uni-input input " />
 				<view class="text">
 					<text>获取验证码</text>
 				</view>
 			</view>
-			<view class="bm-login_botton">
+			<view class="bm-login_botton" style="background: linear-gradient(112deg, #FF6767 0%, #F2453D 100%);">
 				注册/登录
 			</view>
 
 			<view class="bm-login-agreement">
-				<icon type="success" size="16" />
 				<text class="text">点击注册或登录即表示您同意 </text>
 				<text class="nav-text">《用户服务协议》</text>
 			</view>
@@ -85,48 +85,57 @@
 			}
 
 			.bm-login-input {
+				width: 640rpx;
+				height: 80rpx;
 				text-align: left;
 				padding-left: 17rpx;
 				display: flex;
 				align-items: center;
-				background: #e8e2e2;
-				border-radius: 44rpx;
+				border-radius: 40rpx;
 				overflow: hidden;
 				margin-bottom: 50rpx;
-				height: 90rpx;
-
-				.input {
-					background: #e8e2e2;
+				border: 1rpx solid #DEDEDE;
+				.icon{
+					height: 36rpx;
+					width: 36rpx;
 				}
-
 				.text {
 					width: 150rpx;
 					padding: 0 16rpx;
+					color: #FA6400;
 				}
 			}
 
 			.bm-login_botton {
-				height: 90rpx;
-				border: solid 1px red;
-				line-height: 90rpx;
-				width: 650rpx;
-				border-radius: 10rpx;
+				line-height: 84rpx;
 				margin: 0 auto 40rpx;
+				width: 640px;
+				height: 84px;
+				background: linear-gradient(112deg, #FF6767 0%, #F2453D 100%);
+				border-radius: 42px;
+				font-size: 32px;
+				font-family: PingFangSC-Medium, PingFang SC;
+				font-weight: 500;
+				color: #FFFFFF;
 
 			}
 
-			.bm-login-agreement {
-				display: flex;
-				height: 60rpx;
-				align-items: center;
+		}
 
-				.text {
-					padding-left: 10rpx;
-				}
+		.bm-login-agreement {
+			position: fixed;
+			bottom: 15rpx;
+			display: flex;
+			font-size: 28rpx;
+			color: #666666;
 
-				.nav-text {
-					color: red;
-				}
+			.text {
+				padding-left: 30rpx;
+			}
+
+			.nav-text {
+				color: red;
+				color: #FA6400;
 			}
 		}
 

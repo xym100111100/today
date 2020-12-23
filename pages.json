@@ -1,70 +1,102 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		 {
-		     "path" : "pages/login/login",
-		     "style" :                                                                                    
-		     {
-		         "navigationBarTitleText": "登录",
-		         "enablePullDownRefresh": false,
-				 "navigationBarBackgroundColor": "#FFFFFF"
-		     }
-		     
-		 },
-		 {
-		     "path" : "pages/login/register",
-		     "style" :                                                                                    
-		     {
-		         "navigationBarTitleText": "登录/注册",
-		         "enablePullDownRefresh": false,
-		 				 "navigationBarBackgroundColor": "#FFFFFF"
-		     }
-		     
-		 },
-		 {
-		 	"path": "pages/home/index",
-		 	"style": {
-		 		"navigationBarTitleText": "today",
-		 		"enablePullDownRefresh": false, //设置为true表示当前页面开启下拉刷新
-		 		// "backgroundTextStyle": "light"  //下拉 loading 的样式，仅支持 dark/light
-		 		"app-plus": {
-		 			"titleNView": {
-		 				
-		 			},
-		 			"bounce": "none"
-		 		}
-		 	}
-		 
-		 }
-	    
-        ,{
-            "path" : "pages/login/terms",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "服务条款",
-                "enablePullDownRefresh": false,
-				 "navigationBarBackgroundColor": "#FFFFFF"
-				
-            }
-            
-        }
+
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "东兴边民贸易平台",
+				"navigationStyle": "custom"
+			}
+
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+
+		},
+		{
+			"path": "pages/login/register",
+			"style": {
+				"navigationBarTitleText": "手机号码登录",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+
+		}, {
+			"path": "pages/login/terms",
+			"style": {
+				"navigationBarTitleText": "服务条款",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#FFFFFF"
+
+			}
+
+		}, {
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/arranging/arranging",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	   
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "today",
-		"navigationBarBackgroundColor": "#f7f9fc",
-		"backgroundColor": "#f7f9fc",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF",
 		"backgroundColorTop": "#F4F5F6",
 		"backgroundColorBottom": "#F4F5F6",
 		"mp-alipay": {
 			"titleBarColor": "#FFFFFF"
 		}
 	},
-	"condition": { //模式配置，仅开发期间生效
-		"current": 0, //当前激活的模式(list 的索引项)
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#343434",
+		"borderStyle": "white",
+		"backgroundColor": "#FFFFFF",
+		"fontSize": "16px",
+		"iconWidth": "30px",
 		"list": [{
-			"name": "", //模式名称
-			"path": "", //启动页面，必选
-			"query": "" //启动参数，在页面的onLoad函数里面得到
+			"pagePath": "pages/home/index",
+			"iconPath": "static/images/commen/index.png",
+			"selectedIconPath": "static/images/commen/index.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/arranging/arranging",
+			"iconPath": "static/images/commen/arranging.png",
+			"selectedIconPath": "static/images/commen/arranging.png",
+			"text": "排号"
+		}, {
+			"pagePath": "pages/order/order",
+			"iconPath": "static/images/commen/order.png",
+			"selectedIconPath": "static/images/commen/order.png",
+			"text": "订单"
+		}, {
+			"pagePath": "pages/me/me",
+			"iconPath": "static/images/commen/me.png",
+			"selectedIconPath": "static/images/commen/me.png",
+			"text": "我的"
 		}]
 	}
 }

@@ -1,3 +1,13 @@
+.td-container .header.data-v-71e217db {
+  color: #FFFFFF;
+  padding-left: 24rpx;
+  height: 540rpx;
+}
+.td-container .header__title.data-v-71e217db {
+  font-size: 36rpx;
+  height: 63rpx;
+  line-height: 63rpx;
+}
 .s-swiper.data-v-71e217db {
   height: 390rpx;
 }

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "登录/注册",
+  "navigationBarTitleText": "手机号码登录",
   "enablePullDownRefresh": false,
   "navigationBarBackgroundColor": "#FFFFFF",
   "usingComponents": {}
