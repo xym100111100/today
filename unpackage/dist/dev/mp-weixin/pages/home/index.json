@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "东兴边民贸易平台",
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "my-status-bar": "/components/myStatusBar/myStatusBar"
-  }
-}
