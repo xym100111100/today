@@ -3,7 +3,7 @@ export default {
 	login: {
 		//登录
 		// uri: 'appLoginValidate',
-		uri: 'h5/static/json/user/userInfo.json',
+		uri: '/static/json/user/userInfo.json',
 	},
 	reqPublicKey: {
 		//获取公钥

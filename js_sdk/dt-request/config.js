@@ -5,9 +5,9 @@ let baseUrl;
 // console.log("__dirname------------------");
 // console.log(__dirname);
 if (process.env.NODE_ENV === "development") {
-	baseUrl = '';
+	baseUrl = 'http://localhost:8080';
 } else {
-	baseUrl = '';
+	baseUrl = 'http://localhost:8080';
 
 }
 Vue.prototype.baseUrl = baseUrl;

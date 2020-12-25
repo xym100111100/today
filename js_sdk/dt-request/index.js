@@ -116,14 +116,16 @@ Http.prototype.request = function(options) {
 			} else if (statusCode == 200) {
 				resolve(newResponse.data);
 
+			}else if(statusCode != 200) {
+				uni.showToast({
+					title:msg ? msg :"请求出错",
+					duration: 1000
+				});
+				console.log(newResponse)
+				reject(newResponse);
 			}
 			
-			uni.showToast({
-				title:msg ? msg :"请求出错",
-				duration: 1000
-			});
-		    console.log(newResponse)
-			reject(newResponse);
+			
 		};
 
 		const newOptions = Object.assign({}, self.options, options);
