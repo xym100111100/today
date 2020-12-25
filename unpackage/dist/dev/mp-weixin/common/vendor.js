@@ -9673,7 +9673,7 @@ var baseUrl;
 // console.log("__dirname------------------");
 // console.log(__dirname);
 if (true) {
-  baseUrl = 'http://localhost:8080/';
+  baseUrl = '';
 } else {}
 _vue.default.prototype.baseUrl = baseUrl;var _default =
 {

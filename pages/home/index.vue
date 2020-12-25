@@ -1,40 +1,47 @@
 <template>
 	<view :class="[theme]" class="td-container">
-		<view class="header" style="background-image: url('../../static/images/index/index-back.png');">
-
-			<myStatusBar>
-				<view class="header__title">
-					东兴边民贸易平台
-				</view>
-			</myStatusBar>
-			<view class="header__content">
-				<view class="top">
-					<view class="top__left">
-						<image src="../../static/images/diandan.png" mode="widthFix" style="width:20rpx;height:20rpx;" />
-						张三三
+		<view class="header" :style="calculationHeight"  >
+			<image class="header__position-img" src="../../static/images/index/index-back.png" :style="calculationHeight"   />
+			<view class="header__position">
+				<myStatusBar/>
+					<view class="header__title">
+						东兴边民贸易平台
 					</view>
-					<view class="top__right">
-						<image src="../../static/images/diandan.png" mode="widthFix" style="width:20rpx;height:20rpx;" />
+				
+				<view class="header__content">
+					<view class="top">
+						<view class="top__left">
+							<image class="icon" src="../../static/images/index/account.png" mode="widthFix" />
+							<text class="username">张三</text>
+						</view>
+						<view class="top__right">
+							<image class="icon" src="../../static/images/index/rule.png" mode="widthFix" />
+						</view>
 					</view>
-				</view>
-				<view class="middle">
-					<view class="">
-						前面等待的边民 <text class="" >5433</text>位
+					<view class="middle">
+						<view class="">
+							前面等待的边民 <text class="number">5433</text>位
+						</view>
+						<view class="">
+							预计打卡后参加交易日期
+						</view>
+						<view class="date">
+							2020年12月21日
+						</view>
 					</view>
-					<view class="">
-						预计打卡后参加交易日期
+					<view class="bottom">
+						打卡签到
 					</view>
-					<view class="">
-						2020年12月21日
-					</view>
-				</view>
-				<view class="">
-					打卡签到
 				</view>
 			</view>
 		</view>
+		<view class="main">
+			<view class="main__date">
+				2020年12月20日
+			</view>
+		</view>
 
-
+<!--
 		<view class="td-address">
 			<view class="td-address__main">
 				<view class="td-address__title">
@@ -60,12 +67,11 @@
 			</view>
 		</view>
 
-		<!-- search -->
+		
 		<view class="td-search">
 			<view class="uni-form-item uni-column"><input class="uni-input" placeholder="请输入商品名称" /></view>
 		</view>
 
-		<!-- 轮播图 -->
 		<view class="td-swipe">
 			<swiper class="s-swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 			 :duration="duration">
@@ -77,7 +83,6 @@
 			</swiper>
 		</view>
 
-		<!-- 导航 -->
 		<view class="td-nav">
 			<view class="td-nav__item">
 				<view class="td-nav__image">
@@ -111,7 +116,6 @@
 			</view>
 		</view>
 
-		<!-- 限时秒杀 -->
 		<view class="td-timelimit">
 			<view class="td-timelimit__header">
 				<view class="td-timelimit__header-left">
@@ -243,7 +247,7 @@
 			</view>
 		</view>
 
-		<!-- 有缘千里来送券 -->
+		
 		<view class="td-coupon-wrap">
 			<view class="td-coupon-wrap__header">
 				<view class="td-coupon-wrap__header-title">有缘千里来送券</view>
@@ -304,7 +308,6 @@
 			</view>
 		</view>
 
-		<!-- 种类 -->
 		<view class="td-kind">
 			<view class="td-kind__nav">
 				<view class="td-kind__nav-item" v-for="item in kinds" :key="item.value" :class="{ 'is-active': kindIndex === item.value }"
@@ -404,6 +407,7 @@
 				</view>
 			</view>
 		</view>
+		 -->
 	</view>
 </template>
 <script>
@@ -415,6 +419,7 @@
 
 		data() {
 			return {
+				calculationHeight:'height:540rpx',
 				title: '',
 				indicatorDots: true,
 				autoplay: true,
@@ -506,7 +511,13 @@
 
 
 		},
-		onLoad() {},
+		onLoad() {
+			wx.getSystemInfo({
+				success: (res)=> {
+					this.calculationHeight = 'height:' + parseInt(res.statusBarHeight+205+63) + 'px';
+				},
+			});
+		},
 		methods: {
 
 			toggleTheme() {
@@ -546,12 +557,97 @@
 	.td-container {
 		.header {
 			color: #FFFFFF;
-			padding-left: 24rpx;
-			height: 540rpx;
+			width: 100%;
+			&__position-img{
+				height:100%;
+				width: 100%;
+				position: absolute;
+			}
+			&__position {
+				position: absolute;
+				width: 100%;
+			}
+
 			&__title {
 				font-size: 36rpx;
-				height: 63rpx;
-				line-height: 63rpx;
+				height: 63px;
+				line-height: 63px;
+				padding-left: 24rpx;
+			}
+
+			&__content {
+				height: 205px;
+				.top {
+					display: flex;
+					justify-content: space-between;
+					height: 64rpx;
+					align-items: center;
+					padding-top: 24rpx;
+					margin-top: 14rpx;
+					border-top: solid 1rpx rgba(245, 245, 245, 0.4);
+
+					&__left {
+						padding-left: 24rpx;
+
+						.icon {
+							height: 64rpx;
+							width: 64rpx;
+						}
+
+						height: 64rpx;
+						display: flex;
+						align-items: center;
+
+						.username {
+							padding-left: 18rpx;
+							font-size: 32rpx;
+						}
+					}
+
+					&__right {
+						display: flex;
+						align-items: center;
+						height: 64rpx;
+						margin-right: 24rpx;
+						
+						.icon {
+							height: 47rpx;
+							width: 48rpx;
+
+						}
+					}
+				}
+
+				.middle {
+					width: 328rpx;
+					margin: 0 auto;
+					font-size: 28rpx;
+					text-align: center;
+					margin-top: 14rpx;
+
+					.number,
+					.date {
+						padding: 0 3rpx;
+						color: #FFF71F;
+						font-size: 40rpx;
+					}
+
+				}
+
+				.bottom {
+					margin: 0 auto;
+					width: 240rpx;
+					height: 72rpx;
+					background: #FFFFFF;
+					border-radius: 36rpx;
+					margin-top: 41rpx;
+					text-align: center;
+					color: #F3433D;
+					line-height: 72rpx;
+				}
+
+
+
 			}
 
 		}

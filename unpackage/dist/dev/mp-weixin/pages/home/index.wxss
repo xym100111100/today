@@ -1,12 +1,96 @@
 .td-container .header.data-v-71e217db {
   color: #FFFFFF;
-  padding-left: 24rpx;
-  height: 540rpx;
+  width: 100%;
+}
+.td-container .header__position-img.data-v-71e217db {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.td-container .header__position.data-v-71e217db {
+  position: absolute;
+  width: 100%;
 }
 .td-container .header__title.data-v-71e217db {
   font-size: 36rpx;
   height: 63rpx;
   line-height: 63rpx;
+  padding-left: 24rpx;
+}
+.td-container .header__content.data-v-71e217db {
+  height: 205rpx;
+}
+.td-container .header__content .top.data-v-71e217db {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  height: 64rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding-top: 24rpx;
+  margin-top: 14rpx;
+  border-top: solid 1rpx rgba(245, 245, 245, 0.4);
+}
+.td-container .header__content .top__left.data-v-71e217db {
+  padding-left: 24rpx;
+  height: 64rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.td-container .header__content .top__left .icon.data-v-71e217db {
+  height: 64rpx;
+  width: 64rpx;
+}
+.td-container .header__content .top__left .username.data-v-71e217db {
+  padding-left: 18rpx;
+  font-size: 32rpx;
+}
+.td-container .header__content .top__right.data-v-71e217db {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  height: 64rpx;
+  margin-right: 24rpx;
+}
+.td-container .header__content .top__right .icon.data-v-71e217db {
+  height: 47rpx;
+  width: 48rpx;
+}
+.td-container .header__content .middle.data-v-71e217db {
+  width: 328rpx;
+  margin: 0 auto;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 14rpx;
+}
+.td-container .header__content .middle .number.data-v-71e217db,
+.td-container .header__content .middle .date.data-v-71e217db {
+  padding: 0 3rpx;
+  color: #FFF71F;
+  font-size: 40rpx;
+}
+.td-container .header__content .bottom.data-v-71e217db {
+  margin: 0 auto;
+  width: 240rpx;
+  height: 72rpx;
+  background: #FFFFFF;
+  -webkit-border-radius: 36rpx;
+          border-radius: 36rpx;
+  margin-top: 41rpx;
+  text-align: center;
+  color: #F3433D;
+  line-height: 72rpx;
 }
 .s-swiper.data-v-71e217db {
   height: 390rpx;

@@ -3170,6 +3170,8 @@ page {
 .td-container {
   min-height: 100%;
   padding-bottom: 130rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .theme-default {
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f7f9fc));

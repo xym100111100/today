@@ -40,7 +40,6 @@
 <style lang="less" scoped>
 	.statusWidth{
 		 width: 750rpx;
-		 background: red;
 	}
 	   
 
