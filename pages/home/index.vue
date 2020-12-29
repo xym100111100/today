@@ -1,5 +1,5 @@
 <template>
-	<view :class="[theme]" class="td-container">
+	<view :class="[theme]" class="bm-container">
 		<view class="header" :style="calculationHeight">
 			<image class="header__position-img" src="../../static/images/index/index-back.png" :style="calculationHeight" />
 			<view class="header__position">
@@ -218,7 +218,7 @@
 	};
 </script>
 <style lang="less" scoped>
-	.td-container {
+	.bm-container {
 		.header {
 			color: #FFFFFF;
 			width: 100%;
