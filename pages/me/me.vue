@@ -24,21 +24,19 @@
 			</view>
 		</view>
 		<view class="main">
-			<view class="list-item">
-				<view class="item-left">
-					<image class="left-img" src="../../static/images/me/setting.png" mode=""></image>
-					<view class="" >
-						我的设置
+			<navigator class="item-right" open-type="navigate" url="/pages/me/setting/setting" hover-class="none">
+				<view class="list-item">
+					<view class="item-left">
+						<image class="left-img" src="../../static/images/me/setting.png" mode=""></image>
+						<view class="">
+							我的设置
+						</view>
+					</view>
+					<view class="item-right">
+						<image src="../../static/images/commen/forward.png" mode="" style="height: 28rpx; width: 16rpx;"></image>
 					</view>
 				</view>
-				<view class="item-right"  >
-					<navigator   class="item-right" open-type="navigate" url="/pages/me/setting/setting" hover-class="none">
-						<image src="../../static/images/commen/forward.png" mode="" style="height: 28rpx; width: 16rpx;"></image>
-					</navigator>
-				</view>
-				
-
-			</view>
+			</navigator>
 
 			<view class="list-item">
 				<view class="item-left">
@@ -53,19 +51,22 @@
 
 			</view>
 
-			<view class="list-item">
-				<view class="item-left">
-					<image class="left-img" src="../../static/images/me/bill.png" mode=""></image>
-					<view class="">
-						交易流水
+			<navigator open-type="navigate" url="/pages/me/flowing/flowing" hover-class="none">
+				<view class="list-item">
+					<view class="item-left">
+						<image class="left-img" src="../../static/images/me/bill.png" mode=""></image>
+						<view class="">
+							交易流水
+						</view>
 					</view>
-				</view>
-				<view class="item-right">
-					<image src="../../static/images/commen/forward.png" mode="" style="height: 28rpx; width: 16rpx;"></image>
-				</view>
+					<view class="item-right">
 
-			</view>
+						<image src="../../static/images/commen/forward.png" mode="" style="height: 28rpx; width: 16rpx;"></image>
 
+					</view>
+
+				</view>
+			</navigator>
 		</view>
 	</view>
 </template>

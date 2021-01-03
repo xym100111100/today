@@ -77,6 +77,25 @@
             }
             
         }
+        ,{
+            "path" : "pages/order/orderDetail/orderDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/me/flowing/flowing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+               "navigationStyle": "custom"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -107,7 +126,7 @@
 			"selectedIconPath": "static/images/commen/arranging.png",
 			"text": "排号"
 		}, {
-			"pagePath": "pages/initPage/initPage",
+			"pagePath": "pages/order/order",
 			"iconPath": "static/images/commen/order.png",
 			"selectedIconPath": "static/images/commen/order.png",
 			"text": "订单"

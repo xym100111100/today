@@ -3,6 +3,8 @@
   --  那直接就开撸了呗
 2、使用自定义导航栏
   -- 建议基于pages/initPage/initPage.vue来写，已经动态兼容不同手机状态栏。
+
+3、需要下面部分需要自适应的话需要给contains高度%100，然后布局flex-direction: column;
   
  固定高度值px，与rpx比为1/2
  1、状态栏：通过getSystemInfo获取

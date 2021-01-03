@@ -23,28 +23,8 @@
 
 		<view class="main">
 
-			<view style="height: 200rpx; background: yellow; margin-top: 20rpx;">
+			<view @tap="goPage('/pages/order/orderDetail/orderDetail')"  style="height: 200rpx; background: yellow; margin-top: 20rpx;">
 				{{firstText}}
-			</view>
-
-			<view style="height: 200rpx; background: yellow; margin-top: 20rpx;">
-				add
-			</view>
-
-			<view style="height: 200rpx; background: yellow; margin-top: 20rpx;">
-				add
-			</view>
-
-			<view style="height: 200rpx; background: yellow; margin-top: 20rpx;">
-				add
-			</view>
-
-			<view style="height: 200rpx; background: yellow; margin-top: 20rpx;">
-				add
-			</view>
-
-			<view style="height: 200rpx; background: yellow; margin-top: 20rpx;">
-				add23432
 			</view>
 
 		</view>
@@ -53,12 +33,11 @@
 
 <script>
 	import myStatusBar from "@/components/myStatusBar/myStatusBar.vue"
-	import myList from "@/components/myLIst/myList.vue"
 
 	export default {
 		components: {
 			myStatusBar,
-			myList
+			
 		},
 		computed: {
 
@@ -122,6 +101,9 @@
 					item.active = false
 				})
 				this.switchData[index].active = true
+			},
+			goPage(url){
+				uni.navigateTo({url:url})
 			}
 
 		}
