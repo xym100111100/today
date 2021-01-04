@@ -8,19 +8,20 @@
 					<view class="title font-size-lg" style="height: 31px;">
 						订单
 					</view>
-					<view class="tab-nav">
-						<view class="switch-list">
-							<view @tap="changeSwitch(index)" :style="item.active?'border-bottom: solid 2px #F3433D ':''" :class="item.active?'item active-item':'item'"
-							 v-for="(item,index) in switchData" :key="index">
-								{{item.title}}
-							</view>
-						</view>
-					</view>
+
 				</view>
 			</view>
 		</view>
 		<view class="main" :style="paddingTop">
-			<view class="list  p-20" @tap="goPage" >
+			<view class="tab-nav" :style="navTop" >
+				<view class="switch-list">
+					<view @tap="changeSwitch(index)" :style="item.active?'border-bottom: solid 2px #F3433D ':''" :class="item.active?'item active-item':'item'"
+					 v-for="(item,index) in switchData" :key="index">
+						{{item.title}}
+					</view>
+				</view>
+			</view>
+			<view class="list  p-20" @tap="goPage">
 				<view class="list-item mb-10">
 					<view class="text-color-black font-size-lg">
 						中越大福商行
@@ -222,9 +223,9 @@
 		onLoad() {
 			wx.getSystemInfo({
 				success: (res) => {
-					this.headerHeight = 'height:' + parseInt(res.statusBarHeight + 7 + 31 + 7 + 46) + 'px';
+					this.headerHeight = 'height:' + parseInt(res.statusBarHeight + 7 + 31 + 7) + 'px';
 					this.paddingTop = 'padding-top:' + parseInt(res.statusBarHeight + 7 + 31 + 7 + 46 + 2) + 'px';
-
+					this.navTop = 'top:' + parseInt(res.statusBarHeight + 7 + 31 + 7) + 'px';
 					// 总91 顶部占7 360/750 =>  1rpx = 0.48px   
 
 				},
@@ -232,9 +233,11 @@
 
 		},
 		methods: {
-			goPage(){
-				
-				uni.navigateTo({url:'/pages/order/orderDetail/orderDetail'})	
+			goPage() {
+
+				uni.navigateTo({
+					url: '/pages/order/orderDetail/orderDetail'
+				})
 			},
 			onRefresh() {
 				setTimeout(() => {
@@ -250,18 +253,18 @@
 			openPopup(val) {
 
 				//this.$refs[val].open()
-				
+
 				uni.checkIsSupportSoterAuthentication({
-				                    success(res) {
-				                        console.log(res);
-				                    },
-				                    fail(err) {
-				                        console.log(err);
-				                    },
-				                    complete(res) {
-				                        console.log(res);
-				                    }
-				                })
+					success(res) {
+						console.log(res);
+					},
+					fail(err) {
+						console.log(err);
+					},
+					complete(res) {
+						console.log(res);
+					}
+				})
 
 				// uni.startSoterAuthentication({
 				// 	requestAuthModes: ['fingerPrint'],
@@ -317,29 +320,7 @@
 					height: 216rpx;
 				}
 
-				.tab-nav {
-					.switch-list {
-						height: 98rpx;
-						background: #FFFFFF;
-						border-bottom: solid 2rpx #E4E4E4;
-						display: flex;
-						justify-content: space-around;
-						align-items: center;
 
-						.item {
-							width: 100%;
-							text-align: center;
-							height: 98rpx;
-							line-height: 98rpx;
-							font-size: 30rpx;
-							color: #666666;
-						}
-
-						.active-item {
-							color: #F3433D;
-						}
-					}
-				}
 
 
 			}
@@ -347,6 +328,33 @@
 		}
 
 		.main {
+			.tab-nav {
+				position: fixed;
+				width: 100%;
+
+				.switch-list {
+					height: 98rpx;
+					background: #FFFFFF;
+					border-bottom: solid 2rpx #E4E4E4;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+
+					.item {
+						width: 100%;
+						text-align: center;
+						height: 98rpx;
+						line-height: 98rpx;
+						font-size: 30rpx;
+						color: #666666;
+					}
+
+					.active-item {
+						color: #F3433D;
+					}
+				}
+			}
+
 			.list {
 				margin-bottom: 12rpx;
 				background: #FFFFFF;
