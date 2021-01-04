@@ -12,10 +12,10 @@
 		</view>
 		<view v-if="!isReport" class="before ">
 			<view class="middle">
-				<view class="mb-10  font-size-lgx">
+				<view class="mb-30  font-size-lgx">
 					前面等待的边民 <text class="number text-color-white font-size-extra-llg">5433</text>位
 				</view>
-				<view class="mb-10 font-size-lgx ">
+				<view class="mb-30 font-size-lgx ">
 					预计打卡后参加交易日期
 				</view>
 				<view class="date text-color-white font-size-extra-llgx">

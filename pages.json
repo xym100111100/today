@@ -90,6 +90,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
+				  "enablePullDownRefresh": true,
                  "navigationStyle": "custom"
             }
             
@@ -111,8 +112,7 @@
 		"selectedColor": "#F3433D",
 		"borderStyle": "white",
 		"backgroundColor": "#FFFFFF",
-		"fontSize": "16px",
-		"iconWidth": "30px",
+		
 		"list": [{
 			"pagePath": "pages/home/index",
 			"iconPath": "static/images/commen/tab/index2.png",

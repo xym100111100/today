@@ -93,7 +93,6 @@
 			wx.getSystemInfo({
 				success: (res) => {
 					this.headerHeight = 'height:' + parseInt(res.statusBarHeight + 31 + 7 + 108) + 'px';
-					console.log(this.headerHeight)
 				},
 			});
 

@@ -41,7 +41,7 @@
 					</view>
 				</view>
 			</view>
-			
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -63,9 +63,9 @@
 					</view>
 				</view>
 			</view>
-			
-			
-			
+
+
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -87,8 +87,8 @@
 					</view>
 				</view>
 			</view>
-			
-			
+
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -110,8 +110,8 @@
 					</view>
 				</view>
 			</view>
-			
-			
+
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -133,7 +133,7 @@
 					</view>
 				</view>
 			</view>
-			
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -155,7 +155,7 @@
 					</view>
 				</view>
 			</view>
-			
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -177,7 +177,7 @@
 					</view>
 				</view>
 			</view>
-			
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -199,7 +199,7 @@
 					</view>
 				</view>
 			</view>
-			
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -221,7 +221,7 @@
 					</view>
 				</view>
 			</view>
-			
+
 			<view class="list">
 				<view class="item">
 					<view class="left">
@@ -318,7 +318,7 @@
 
 <style lang="less" scoped>
 	.bm-container {
-	
+
 
 		.header {
 			position: fixed;
@@ -353,15 +353,18 @@
 		}
 
 		.main {
+			background: #F8F8F8;
 
 			.list {
 				background: white;
 				position: relative;
 				padding: 19rpx 0;
 				margin-bottom: 12rpx;
+
 				.item {
 					display: flex;
 					padding-top: 12rpx;
+
 					.left {
 						width: 138rpx;
 						text-align: right;

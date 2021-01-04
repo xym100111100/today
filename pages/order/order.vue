@@ -53,7 +53,7 @@
 					<view class="">
 						2020-12-20 14:43
 					</view>
-					<view @tap="openPopup('comfimOrder')" class="cancel back-color-orange-x text-color-white">
+					<view @tap.stop="openPopup('comfimOrder')" class="cancel back-color-orange-x text-color-white">
 						立即确认
 					</view>
 				</view>
@@ -91,7 +91,7 @@
 					<view class="">
 						2020-12-20 14:43
 					</view>
-					<view @tap="openPopup('comfimOrder')" class="cancel back-color-orange-x text-color-white">
+					<view @tap.stop="openPopup('comfimOrder')" class="cancel back-color-orange-x text-color-white">
 						立即确认
 					</view>
 				</view>
@@ -251,25 +251,9 @@
 				this.switchData[index].active = true
 			},
 			openPopup(val) {
-
 				//this.$refs[val].open()
 
-				uni.checkIsSupportSoterAuthentication({
-					success(res) {
-						console.log(res);
-					},
-					fail(err) {
-						console.log(err);
-					},
-					complete(res) {
-						console.log(res);
-					}
-				})
-
-				// uni.startSoterAuthentication({
-				// 	requestAuthModes: ['fingerPrint'],
-				// 	challenge: '123456',
-				// 	authContent: '请用指纹解锁',
+				// uni.checkIsSupportSoterAuthentication({
 				// 	success(res) {
 				// 		console.log(res);
 				// 	},
@@ -280,6 +264,21 @@
 				// 		console.log(res);
 				// 	}
 				// })
+
+				uni.startSoterAuthentication({
+					requestAuthModes: ['fingerPrint'],
+					challenge: '123456',
+					authContent: '请用指纹解锁!',
+					success(res) {
+						console.log(res);
+					},
+					fail(err) {
+						console.log(err);
+					},
+					complete(res) {
+						console.log(res);
+					}
+				})
 			},
 			closePopup(val) {
 				this.$refs[val].close()
