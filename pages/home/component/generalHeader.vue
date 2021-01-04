@@ -79,7 +79,7 @@
 					<view>
 						<image class="img" src="../../../static/images/commen/report.png" mode=""></image>
 					</view>
-					<view class="">
+					<view class="text-color-grey-6">
 						请你再次确认与边贸交易
 					</view>
 					<view class="btn" @tap="closePopup('report',true)">

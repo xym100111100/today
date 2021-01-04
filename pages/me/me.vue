@@ -38,7 +38,7 @@
 				</view>
 			</navigator>
 
-			<view class="list-item">
+			<view class="list-item" @tap="openPopup('service')">
 				<view class="item-left">
 					<image class="left-img" src="../../static/images/me/service.png" mode=""></image>
 					<view class="">
@@ -68,6 +68,29 @@
 				</view>
 			</navigator>
 		</view>
+
+		<uni-popup ref="service" type="center">
+			<view class="bm-popup" style="width: 600rpx;">
+				<view class="popup-title">
+					<view class="icon">
+
+					</view>
+					<view class="text-color-black font-size-lg">
+						签到打卡
+					</view>
+					<image @tap="closePopup('service')" class="icon" src="../../static/images/commen/close.png" mode=""></image>
+				</view>
+				<view class="content">
+					<view class="top pb-20">
+						<image style="height: 64rpx; width: 64rpx;" src="../../static/images/commen/call.png" mode=""></image>
+						<text class="text-color-black ml-30 font-size-48  ">0771 - 4562454</text>
+					</view>
+					<view class="btn" @tap="call">
+						呼叫客服
+					</view>
+				</view>
+			</view>
+		</uni-popup>
 	</view>
 </template>
 
@@ -98,9 +121,21 @@
 
 		},
 		methods: {
+			call() {
+				uni.makePhoneCall({
+					phoneNumber: '18278904219' 
+				});
+			},
 			goPage(url) {
 
+			},
+			openPopup(val) {
+				this.$refs[val].open()
+			},
+			closePopup(val) {
+				this.$refs[val].close()
 			}
+
 		}
 	}
 </script>
@@ -182,5 +217,32 @@
 
 			}
 		}
+	}
+
+	.bm-popup {
+		.content {
+			padding-bottom: 82rpx;
+
+			.top {
+				height: 170rpx;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+			}
+
+			.btn {
+				width: 260rpx;
+				height: 76rpx;
+				background: #F3433D;
+				border-radius: 40rpx;
+				margin: 0 auto;
+				color: white;
+				font-size: 32rpx;
+				line-height: 76rpx;
+				text-align: center;
+			}
+		}
+
 	}
 </style>
