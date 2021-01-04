@@ -11,16 +11,17 @@
 				</view>
 			</view>
 		</view>
+		
+		<!-- 1:以上为自定义头部信息，尽量尽量不要在上面再加内容，
+		     不管下一个元素是不是还要继续绝对定位，应该在下一个
+			 元素中写绝对定位而不是写在头部里面，因为不同的手机，
+			 会因为px和rpx的转换比不一样，当高度越高的时候差距
+			 就会越大，这样就会一些高度对不齐的问题
+		 -->
+		
 		<view class="main" :style="paddingTop">
-			<myList ref="list">
-				<template slot-scope="{ row, index }">
-					<view style="height: 200rpx; background: #e4e4db; margin-top: 20rpx;">
-						{{row}}
-					</view>
-				</template>
-
-			</myList>
-
+			
+         32423432
 		</view>
 	</view>
 </template>
@@ -53,17 +54,7 @@
 				action: '开始',
 				headerHeight: 'height:0px',
 				paddingTop: 'padding-top:0px',
-				list: {
-					isStatic: false, // 是否是静态json
-					url: "/flow/handle/list",
-					postData: {
-						pageNum: 1,
-						pageSize: 10,
-						handleStatus: "done",
-						handleType: "",
-						businessType: "",
-					},
-				},
+				
 			}
 		},
 

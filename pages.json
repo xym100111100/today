@@ -53,6 +53,7 @@
 		}, {
 			"path": "pages/arranging/arranging",
 			"style": {
+				 "enablePullDownRefresh": true,
 				"navigationBarTitleText": "",
 				 "navigationStyle": "custom"
 			}
@@ -76,23 +77,20 @@
                  "navigationStyle": "custom"
             }
             
-        }
-        ,{
+        },{
             "path" : "pages/order/orderDetail/orderDetail",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-               "navigationStyle": "custom"
+                 "navigationStyle": "custom"
             }
             
-        }
-        ,{
+        },{
             "path" : "pages/me/flowing/flowing",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-				"enablePullDownRefresh": true,
-               "navigationStyle": "custom"
+                 "navigationStyle": "custom"
             }
             
         }
@@ -109,31 +107,31 @@
 		}
 	},
 	"tabBar": {
-		"color": "#999999",
-		"selectedColor": "#343434",
+		"color": "#666666",
+		"selectedColor": "#F3433D",
 		"borderStyle": "white",
 		"backgroundColor": "#FFFFFF",
 		"fontSize": "16px",
 		"iconWidth": "30px",
 		"list": [{
 			"pagePath": "pages/home/index",
-			"iconPath": "static/images/commen/index.png",
-			"selectedIconPath": "static/images/commen/index.png",
+			"iconPath": "static/images/commen/tab/index2.png",
+			"selectedIconPath": "static/images/commen/tab/index.png",
 			"text": "首页"
 		}, {
 			"pagePath": "pages/arranging/arranging",
-			"iconPath": "static/images/commen/arranging.png",
-			"selectedIconPath": "static/images/commen/arranging.png",
+			"iconPath": "static/images/commen/tab/arranging2.png",
+			"selectedIconPath": "static/images/commen/tab/arranging.png",
 			"text": "排号"
 		}, {
 			"pagePath": "pages/order/order",
-			"iconPath": "static/images/commen/order.png",
-			"selectedIconPath": "static/images/commen/order.png",
+			"iconPath": "static/images/commen/tab/order2.png",
+			"selectedIconPath": "static/images/commen/tab/order.png",
 			"text": "订单"
 		}, {
 			"pagePath": "pages/me/me",
-			"iconPath": "static/images/commen/me.png",
-			"selectedIconPath": "static/images/commen/me.png",
+			"iconPath": "static/images/commen/tab/me2.png",
+			"selectedIconPath": "static/images/commen/tab/me.png",
 			"text": "我的"
 		}]
 	}
