@@ -1,7 +1,28 @@
 <template>
 	<view :class="[theme]" class="bm-container">
+		<view class="header" :style="headerHeight">
+			<view>
+				<myStatusBar />
+				<view class="header__content">
+					<view class="title">
+						<navigator open-type="navigateBack" hover-class="other-navigator-hover">
+							<image  src="../../static/images/commen/back2.png" mode="" style="height: 56rpx;width: 56rpx;"></image>
+						</navigator>
+
+						<view class="font-size-lg text-color-black ">
+							手机号码登录
+						</view>
+						<view style="height: 56rpx;width: 56rpx;">
+
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+
 		<view class="bm-login">
-			<image class="bm-login_img" src="../../static/images/1.jpg" mode=""></image>
+			<image class="bm-login_img" src="../../static/images/commen/logo.png" mode=""></image>
 			<view class="bm-login_text">
 				<text>
 					东兴便民贸易平台
@@ -16,7 +37,7 @@
 			</view>
 			<view class="bm-login-input">
 				<image class="icon" src="../../static/images/commen/password.png" mode=""></image>
-				
+
 				<input placeholder="请输入短信验证码" class="uni-input input " />
 				<view class="text">
 					<text>获取验证码</text>
@@ -38,7 +59,7 @@
 	export default {
 		data() {
 			return {
-
+				headerHeight: 'height:0px',
 			}
 		},
 		computed: {
@@ -48,6 +69,14 @@
 			theme() {
 				return this.$store.state.theme.name;
 			}
+		},
+		onLoad() {
+			wx.getSystemInfo({
+				success: (res) => {
+					this.headerHeight = 'height:' + parseInt(res.statusBarHeight + 31 + 7 + 7) + 'px';
+				},
+			});
+
 		},
 		created() {
 			// 隐藏home键
@@ -66,6 +95,38 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		background: white;
+
+		.header {
+			position: relative;
+
+			&__back {
+				position: absolute;
+				width: 100%;
+
+			}
+
+			&__content {
+				width: 100%;
+				position: absolute;
+
+				.title {
+					height: 62rpx;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding: 0 22rpx;
+					color: #FFFFFF;
+
+				}
+
+				.content {
+					height: 216rpx;
+				}
+
+			}
+
+		}
 
 
 		.bm-login {
@@ -85,6 +146,7 @@
 			}
 
 			.bm-login-input {
+				background: white;
 				width: 640rpx;
 				height: 80rpx;
 				text-align: left;
@@ -95,10 +157,12 @@
 				overflow: hidden;
 				margin-bottom: 50rpx;
 				border: 1rpx solid #DEDEDE;
-				.icon{
+
+				.icon {
 					height: 36rpx;
 					width: 36rpx;
 				}
+
 				.text {
 					width: 150rpx;
 					padding: 0 16rpx;

@@ -1,6 +1,14 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
 
+		},
 		{
 			"path": "pages/home/index",
 			"style": {
@@ -9,19 +17,11 @@
 			}
 
 		},
-		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "登录",
-				"enablePullDownRefresh": false,
-				"navigationBarBackgroundColor": "#FFFFFF"
-			}
 
-		},
 		{
 			"path": "pages/login/register",
 			"style": {
-				"navigationBarTitleText": "手机号码登录",
+				"navigationStyle": "custom",
 				"enablePullDownRefresh": false,
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
@@ -39,63 +39,58 @@
 			"path": "pages/order/order",
 			"style": {
 				"navigationBarTitleText": "",
-				"enablePullDownRefresh": true, 
-				 "navigationStyle": "custom"
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
 			}
 
 		}, {
 			"path": "pages/me/me",
 			"style": {
 				"navigationBarTitleText": "",
-			    "navigationStyle": "custom"
+				"navigationStyle": "custom"
 			}
 
 		}, {
 			"path": "pages/arranging/arranging",
 			"style": {
-				 "enablePullDownRefresh": true,
+				"enablePullDownRefresh": true,
 				"navigationBarTitleText": "",
-				 "navigationStyle": "custom"
+				"navigationStyle": "custom"
 			}
 
 		}
-	   
-        ,{
-            "path" : "pages/initPage/initPage",
-            "style" :                                                                                    
-            {
-                "enablePullDownRefresh": true,
-				 "navigationStyle": "custom"
-            }
-            
-        }
-        ,{
-            "path" : "pages/me/setting/setting",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                 "navigationStyle": "custom"
-            }
-            
-        },{
-            "path" : "pages/order/orderDetail/orderDetail",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                 "navigationStyle": "custom"
-            }
-            
-        },{
-            "path" : "pages/me/flowing/flowing",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-				  "enablePullDownRefresh": true,
-                 "navigationStyle": "custom"
-            }
-            
-        }
-    ],
+
+		, {
+			"path": "pages/initPage/initPage",
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/me/setting/setting",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/order/orderDetail/orderDetail",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/me/flowing/flowing",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "today",
@@ -112,7 +107,7 @@
 		"selectedColor": "#F3433D",
 		"borderStyle": "white",
 		"backgroundColor": "#FFFFFF",
-		
+
 		"list": [{
 			"pagePath": "pages/home/index",
 			"iconPath": "static/images/commen/tab/index2.png",
