@@ -7,7 +7,8 @@
 				<view class="header__title font-size-36">
 					东兴边民贸易平台
 				</view>
-				<generalHeader></generalHeader>
+				<generalHeader v-if="showHeader =='generalHeader'" ></generalHeader>
+				<groupHeader  v-if="showHeader =='groupHeader'"> </groupHeader>
 			</view>
 			
 		</view>
@@ -87,20 +88,20 @@
 	import myStatusBar from "@/components/myStatusBar/myStatusBar.vue"
 	import uniPopup from '@/components/uni-popup/uni-popup.vue'
 	import generalHeader from'./component/generalHeader.vue'
+	import groupHeader from'./component/groupHeader.vue'
 
 	export default {
 		components: {
 			myStatusBar,
 			uniPopup,
-			generalHeader
+			generalHeader,
+			groupHeader
 		},
 
 		data() {
 			return {
 				calculationHeight: 'height:540rpx',
-				isReport: false,
-				popupName: 'report',
-
+				showHeader:'groupHeader'
 			};
 		},
 		computed: {

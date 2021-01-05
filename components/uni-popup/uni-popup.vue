@@ -130,7 +130,7 @@
 						clearTimeout(this.msgtimer)
 						this.msgtimer = setTimeout(() => {
 							this.customOpen && this.customOpen()
-						}, 100)
+						}, 0)
 						this.$emit('change', {
 							show: true,
 							type: this.type
@@ -150,7 +150,7 @@
 					this.customOpen && this.customClose()
 					this.timer = setTimeout(() => {
 						this.showPopup = false
-					}, 300)
+					}, 0)
 				})
 			},
 			onTap() {

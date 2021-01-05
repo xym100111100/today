@@ -211,21 +211,21 @@
 			<view class="bm-popup" style="width: 600rpx;">
 				<view class="popup-title">
 					<view class="icon">
-		
+
 					</view>
 					<view class="text-color-black-3 font-size-32">
-						签到打卡
+						取消排号
 					</view>
 					<image @tap="closePopup('cancel')" class="icon" src="../../static/images/commen/close.png" mode=""></image>
 				</view>
 				<view class="content">
-					
+					取消排号后需要重新排队，确定要取消排号吗
 				</view>
-				<view class="btn">
-					<view class="">
+				<view class="flex">
+					<view @tap="closePopup('cancel')"  class="btn text-color-black-3 back-color-E2E2E2">
 						返回
 					</view>
-					<view class="">
+					<view   @tap="openPopup('cancel')" class="btn text-color-white-FFFFFF back-color-F3433D">
 						确定
 					</view>
 				</view>
@@ -321,6 +321,7 @@
 	.bm-container {
 		display: flex;
 		flex-direction: column;
+
 		.header {
 			position: fixed;
 
@@ -403,12 +404,24 @@
 
 		}
 	}
-	
+
 	.bm-popup {
 		.content {
-			
-	
+			text-align: center;
+			width: 469rpx;
+			margin: 59rpx auto;
+			color: #FA6400;
+			font-size: 35rpx;
+
 		}
-	
+
+		.btn {
+			text-align: center;
+			flex-grow: 1;
+			height: 76rpx;
+			line-height: 76rpx;
+			font-size: 32rpx;
+		}
+
 	}
 </style>

@@ -1,48 +1,124 @@
 <template>
-
 	<view class="header__content">
 		<view class="top mb-50 ">
 			<view class="top__left">
 				<image class="icon" src="../../../static/images/index/account.png" mode="widthFix" />
-				<text class="username">张三</text>
+				<text class="username">组名</text>
 			</view>
 			<view @click="openPopup('rule')" class="top__right">
 				<image class="icon" src="../../../static/images/index/rule.png" mode="widthFix" />
 			</view>
 		</view>
-		
-		<view v-if="!isReport" class="before ">
-			<view class="middle">
-				<view class="mb-30  font-size-34">
-					前面等待的边民 <text class="number text-color-white-FFFFFF font-size-40">5433</text>位
-				</view>
-				<view class="mb-30 font-size-34 ">
-					预计打卡后参加交易日期
-				</view>
-				<view class="date text-color-white-FFFFFF font-size-44">
-					2020年12月21日
-				</view>
+		<!-- 签到排号start -->
+		<view class="main" v-if="status==1">
+			<view class=" pb-10 font-size-36">
+				前面等待组长<text class="font-size-44">32432</text>位
 			</view>
-			<view class="bottom font-size-34" @tap="openPopup('report')">
-				打卡签到
+			<view class=" pb-10 font-size-36">
+				预计打卡后参加交易日期
+			</view>
+			<view class=" pb-30 font-size-44">
+				2020年12月21日
+			</view>
+			<view class="main__btn" @tap="status = 2">
+				签到排号
+			</view>
+
+		</view>
+		<!-- 签到排号end -->
+
+		<!-- 等待交易start -->
+		<view class="main" v-if="status==2">
+			<view class=" pb-10 font-size-44">
+				交易号<text class="pl-20">C32432</text>
+			</view>
+			<view class=" pb-10 font-size-36">
+				前面等待组长<text class="font-size-44 pl-10 pr-10">2342</text>位
+			</view>
+			<view class=" pb-30 font-size-36">
+				预计<text class="font-size-44">2020年12月11日</text>参加交易
 			</view>
 		</view>
-		<view class="after" v-if="isReport">
-			<view class="order-num font-size-34">
-				<text>交易号</text>
-				<text class="number font-size-44">B123456</text>
+		<!-- 等待交易end -->
+
+
+		<!-- 等待确认start -->
+		<view class="main" v-if="status==3">
+			<view class=" pb-10 font-size-44">
+				批次号<text class="pl-20">2342432432242</text>
 			</view>
-			<view class=" mb-20 font-size-36 ">
+			<view class=" pb-10 font-size-36">
+				当前订单状态：<text class="font-size-44 pl-10 ">已到号</text>
+			</view>
+			<view class=" pb-30 font-size-36">
+				剩余确认时间<text class="font-size-44 pl-10 pr-10">22</text>秒，请及时确认
+			</view>
+			<view class="main__btn" @tap="status =4 ">
+				立即确认
+			</view>
+		</view>
+		<!-- 等待确定end -->
+
+
+		<!-- 等待商户确认start -->
+		<view class="main" v-if="status==4">
+			<view class=" pb-10 font-size-44">
+				批次号<text class="pl-20">2434242334</text>
+			</view>
+			<view class=" pb-10 font-size-36">
+				当前订单状态：<text class="font-size-44 pl-10 pr-10">等待商户确认</text>
+			</view>
+			<view class=" pb-30 font-size-36">
+				<text class="font-size-44">900</text>秒后系统默认通过
+			</view>
+		</view>
+		<!-- 等待商户确认end -->
+
+
+
+		<!-- 等待商户确认start -->
+		<view class="main" v-if="status==5">
+			<view class=" pb-10 font-size-44">
+				批次号<text class="pl-20">2434242334</text>
+			</view>
+			<view class=" pb-10 font-size-36">
+				当前订单状态：<text class="font-size-44 pl-10 pr-10">等待边民确认</text>
+			</view>
+			<view class="font-size-36 pb-30 ">
+				<text class="">参与便民：</text><text>100人</text> <text class="pl-30">已经确认人数：</text><text>90人</text>
+			</view>
+			<view class="main__btn" @tap="status = 5">
+				批次详情
+			</view>
+		</view>
+		<!-- 等待商户确认end -->
+
+
+		<!-- 申报阶段start -->
+		<view class="main" v-if="status==6">
+			<view class=" pb-10 font-size-44">
+				批次号<text class="pl-20">2434242334</text>
+			</view>
+			<view class=" pb-10 font-size-36">
+				当前订单状态：<text class="font-size-44 pl-10 pr-10">等待申报</text>
+			</view>
+			<view class="speed">
+				<view class="">
+					<view class="uni-padding-wrap uni-common-mt">
+						<view class="progress-box">
+							<progress percent="20"  stroke-width="3" />
+						</view>
+					</view>
+				</view>
 				
-				前面等待边民<text class="text-color-white-FFFFFF font-size-44 ml-10 mr-10">34543</text>位
+				
 			</view>
-			<view class="font-size-36">
-				预计<text class="text-color-white-FFFFFF  font-size-44">2020年23月21日</text>参加交易
-			</view>
-			<view class="bottom font-size-36" @tap="openPopup('report')">
-				取消排号
-			</view>
+
 		</view>
+		<!-- 申报阶段end -->
+
+
+
 		<uni-popup ref="rule" type="center">
 			<view class="bm-popup">
 				<view class="popup-title">
@@ -94,19 +170,20 @@
 
 <script>
 	export default {
-		name: 'generalHeader',
+		name: 'groupHeader',
 		data() {
 			return {
 				isReport: false,
 				popupName: 'report',
-				contentHeight:'height:px'
+				contentHeight: 'height:px',
+				status: 6,
 			};
 		},
-		created(){
+		created() {
 			wx.getSystemInfo({
-				success: (res)=> {
-					
-					
+				success: (res) => {
+
+
 				},
 			});
 		},
@@ -129,6 +206,8 @@
 <style lang="less" scoped>
 	.header__content {
 		height: 564rpx;
+		display: flex;
+		flex-direction: column;
 
 		.top {
 			display: flex;
@@ -171,49 +250,28 @@
 			}
 		}
 
-		.before {
-			.middle {
-				width: 396rpx;
-				margin: 0 auto;
-				font-size: 28rpx;
+		.main {
+			text-align: center;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			&__btn {
+				font-size: 36rpx;
+				width: 240rpx;
+				height: 72rpx;
+				background: white;
+				border-radius: 36rpx;
 				text-align: center;
-				margin-top: 14rpx;
-
-				.number,
-				.date {
-					padding: 0 6rpx;
-					
-				}
-
-			}
-
-			
-		}
-
-		.after {
-			margin: 0 auto;
-			width: 556rpx;
-			text-align: center;
-
-			.order-num {
-				margin-top: 20rpx;
-				margin-bottom: 20rpx;
-				.number {
-					padding-left: 10rpx;
-				}
+				line-height: 72rpx;
+				margin: 0 auto;
+				color: #F3433D;
 			}
 		}
-		.bottom {
-			margin: 0 auto;
-			width: 240rpx;
-			height: 72rpx;
-			background: #FFFFFF;
-			border-radius: 36rpx;
-			margin-top: 41rpx;
-			text-align: center;
-			color: #F3433D;
-			line-height: 72rpx;
-		}
+
+
 	}
 
 	.bm-popup {
