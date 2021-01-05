@@ -5,7 +5,7 @@
 			<view>
 				<myStatusBar />
 				<view class="header__content">
-					<view class="title font-size-lg">
+					<view class="title font-size-32">
 						模版页面{{action}}
 					</view>
 				</view>

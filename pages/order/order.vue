@@ -5,7 +5,7 @@
 			<view>
 				<myStatusBar />
 				<view class="header__content">
-					<view class="title font-size-lg" style="height: 31px;">
+					<view class="title font-size-32" style="height: 31px;">
 						订单
 					</view>
 
@@ -23,10 +23,10 @@
 			</view>
 			<view class="list  p-20" @tap="goPage">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-lg">
+					<view class="text-color-black-3 font-size-32">
 						中越大福商行
 					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						待确认
 					</view>
 				</view>
@@ -44,7 +44,7 @@
 						组长：张三三
 					</view>
 					<view class="text-color-grey-9">
-						总价：<text class="text-color-orange-x">¥3500</text>
+						总价：<text class="text-color-orange-E02020">¥3500</text>
 					</view>
 				</view>
 
@@ -53,7 +53,7 @@
 					<view class="">
 						2020-12-20 14:43
 					</view>
-					<view @tap.stop="openPopup('comfimOrder')" class="cancel back-color-orange-x text-color-white">
+					<view @tap.stop="openPopup('comfimOrder')" class="cancel back-color-orange-F7635C text-color-white-FFFFFF">
 						立即确认
 					</view>
 				</view>
@@ -61,10 +61,10 @@
 
 			<view class="list  p-20">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-lg">
+					<view class="text-color-black-3 font-size-32">
 						中越大福商行
 					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						待确认
 					</view>
 				</view>
@@ -82,7 +82,7 @@
 						组长：张三三
 					</view>
 					<view class="text-color-grey-9">
-						总价：<text class="text-color-orange-x">¥3500</text>
+						总价：<text class="text-color-orange-E02020">¥3500</text>
 					</view>
 				</view>
 
@@ -91,7 +91,7 @@
 					<view class="">
 						2020-12-20 14:43
 					</view>
-					<view @tap.stop="openPopup('comfimOrder')" class="cancel back-color-orange-x text-color-white">
+					<view @tap.stop="openPopup('comfimOrder')" class="cancel back-color-orange-F7635C text-color-white-FFFFFF">
 						立即确认
 					</view>
 				</view>
@@ -104,7 +104,7 @@
 					<view class="icon">
 
 					</view>
-					<view class="text-color-black font-size-lg">
+					<view class="text-color-black-3 font-size-32">
 						确定订单
 					</view>
 					<image @tap="closePopup('comfimOrder')" class="icon" src="../../static/images/commen/close.png" mode=""></image>
@@ -154,14 +154,14 @@
 						</view>
 						<view class="right flex-space-between">
 							<text>组长代付</text>
-							<text class="text-color-orange-xxx">￥3500</text>
+							<text class="text-color-orange-F3433D">￥3500</text>
 						</view>
 					</view>
 				</view>
 				<view class=" text-align-center">
 					<image style="height: 152rpx; width: 144rpx;" src="../../static/images/order/fingerprint.png" mode=""></image>
 				</view>
-				<view class=" text-align-center pb-20 text-color-orange-x">
+				<view class=" text-align-center pb-20 text-color-orange-E02020">
 					请使用本机指纹确认
 				</view>
 

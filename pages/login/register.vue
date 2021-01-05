@@ -9,7 +9,7 @@
 							<image  src="../../static/images/commen/back2.png" mode="" style="height: 56rpx;width: 56rpx;"></image>
 						</navigator>
 
-						<view class="font-size-lg text-color-black ">
+						<view class="font-size-32 text-color-black-3 ">
 							手机号码登录
 						</view>
 						<view style="height: 56rpx;width: 56rpx;">

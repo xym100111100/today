@@ -244,7 +244,7 @@
 	$hover: #f5f5f5;
 
 	.uni-list-chat {
-		font-size: $uni-font-size-lg;
+		font-size: $uni-font-size-32;
 		position: relative;
 		flex-direction: column;
 		justify-content: space-between;

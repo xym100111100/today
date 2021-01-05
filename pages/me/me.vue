@@ -5,16 +5,16 @@
 			<view>
 				<myStatusBar />
 				<view class="header__content">
-					<view class="title  font-size-extra-ll">
+					<view class="title  font-size-36">
 						我的
 					</view>
 					<view class="content">
 						<image src="../../static/images/me/portrait.png" style="height: 102rpx; width: 102rpx;margin: 0 16rpx;" mode=""></image>
 						<view class="">
-							<view class="font-size-lg">
+							<view class="font-size-32">
 								张三三
 							</view>
-							<view class="font-size-medium phone ">
+							<view class="font-size-28 phone ">
 								1827****219
 							</view>
 						</view>
@@ -75,7 +75,7 @@
 					<view class="icon">
 
 					</view>
-					<view class="text-color-black font-size-lg">
+					<view class="text-color-black-3 font-size-32">
 						签到打卡
 					</view>
 					<image @tap="closePopup('service')" class="icon" src="../../static/images/commen/close.png" mode=""></image>
@@ -83,7 +83,7 @@
 				<view class="content">
 					<view class="top pb-20">
 						<image style="height: 64rpx; width: 64rpx;" src="../../static/images/commen/call.png" mode=""></image>
-						<text class="text-color-black ml-30 font-size-48  ">0771 - 4562454</text>
+						<text class="text-color-black-3 ml-30 font-size-48  ">0771 - 4562454</text>
 					</view>
 					<view class="btn" @tap="call">
 						呼叫客服

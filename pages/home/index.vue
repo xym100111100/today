@@ -4,7 +4,7 @@
 			<image class="header__position-img" src="../../static/images/index/index-back.png" :style="calculationHeight" />
 			<view class="header__position">
 				<myStatusBar />
-				<view class="header__title font-size-extra-ll">
+				<view class="header__title font-size-36">
 					东兴边民贸易平台
 				</view>
 				<generalHeader></generalHeader>

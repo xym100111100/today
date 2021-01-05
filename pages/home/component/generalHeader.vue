@@ -12,33 +12,33 @@
 		</view>
 		<view v-if="!isReport" class="before ">
 			<view class="middle">
-				<view class="mb-30  font-size-lgx">
-					前面等待的边民 <text class="number text-color-white font-size-extra-llg">5433</text>位
+				<view class="mb-30  font-size-34">
+					前面等待的边民 <text class="number text-color-white-FFFFFF font-size-40">5433</text>位
 				</view>
-				<view class="mb-30 font-size-lgx ">
+				<view class="mb-30 font-size-34 ">
 					预计打卡后参加交易日期
 				</view>
-				<view class="date text-color-white font-size-extra-llgx">
+				<view class="date text-color-white-FFFFFF font-size-44">
 					2020年12月21日
 				</view>
 			</view>
-			<view class="bottom font-size-lgx" @tap="openPopup('report')">
+			<view class="bottom font-size-34" @tap="openPopup('report')">
 				打卡签到
 			</view>
 		</view>
 		<view class="after" v-if="isReport">
-			<view class="order-num font-size-lgx">
+			<view class="order-num font-size-34">
 				<text>交易号</text>
-				<text class="number font-size-extra-llgx">B123456</text>
+				<text class="number font-size-44">B123456</text>
 			</view>
-			<view class=" mb-20 font-size-extra-ll ">
+			<view class=" mb-20 font-size-36 ">
 				
-				前面等待边民<text class="text-color-white font-size-extra-llgx ml-10 mr-10">34543</text>位
+				前面等待边民<text class="text-color-white-FFFFFF font-size-44 ml-10 mr-10">34543</text>位
 			</view>
-			<view class="font-size-extra-ll">
-				预计<text class="text-color-white  font-size-extra-llgx">2020年23月21日</text>参加交易
+			<view class="font-size-36">
+				预计<text class="text-color-white-FFFFFF  font-size-44">2020年23月21日</text>参加交易
 			</view>
-			<view class="bottom font-size-extra-ll" @tap="openPopup('report')">
+			<view class="bottom font-size-36" @tap="openPopup('report')">
 				取消排号
 			</view>
 		</view>
@@ -48,12 +48,12 @@
 					<view class="icon">
 
 					</view>
-					<view class="text-color-black font-size-lg">
+					<view class="text-color-black-3 font-size-32">
 						规则说明
 					</view>
 					<image @tap="closePopup('rule')" class="icon" src="../../../static/images/commen/close.png" mode=""></image>
 				</view>
-				<view class="bm-content text-color-black">
+				<view class="bm-content text-color-black-3">
 					<view>1.每日边民贸易交易需打卡确认是否参加。</view>
 					<view>2.每日20：00后开始次日签到打卡。</view>
 					<view>3.先打卡先排序，每日8：00开始交易。</view>
@@ -70,7 +70,7 @@
 					<view class="icon">
 
 					</view>
-					<view class="text-color-black font-size-lg">
+					<view class="text-color-black-3 font-size-32">
 						签到打卡
 					</view>
 					<image @tap="closePopup('report')" class="icon" src="../../../static/images/commen/close.png" mode=""></image>

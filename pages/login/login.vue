@@ -4,7 +4,7 @@
 			<view>
 				<myStatusBar />
 				<view class="header__content">
-					<view class="title text-color-black font-size-extra-ll">
+					<view class="title text-color-black-3 font-size-36">
 						授权登录
 					</view>
 				</view>

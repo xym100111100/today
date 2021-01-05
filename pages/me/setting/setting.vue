@@ -8,7 +8,7 @@
 					<view class="title">
 
 						<image @tap="goPage" src="../../../static/images/commen/goBack.png" mode="" style="height: 56rpx;width: 56rpx;"></image>
-						<view class="font-size-lg">
+						<view class="font-size-32">
 							我的设置
 						</view>
 						<view style="height: 56rpx;width: 56rpx;">

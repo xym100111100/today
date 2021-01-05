@@ -247,7 +247,7 @@ $list-item-pd: $uni-spacing-col-lg $uni-spacing-row-lg;
 	/* #ifndef APP-NVUE */
 	display: flex;
 	/* #endif */
-	font-size: $uni-font-size-lg;
+	font-size: $uni-font-size-32;
 	position: relative;
 	justify-content: space-between;
 	background-color: #fff;
@@ -328,7 +328,7 @@ $list-item-pd: $uni-spacing-col-lg $uni-spacing-row-lg;
 }
 
 .uni-list-item__content-title {
-	font-size: $uni-font-size-base;
+	font-size: $uni-font-size-26;
 	color: #3b4144;
 	overflow: hidden;
 }
@@ -336,7 +336,7 @@ $list-item-pd: $uni-spacing-col-lg $uni-spacing-row-lg;
 .uni-list-item__content-note {
 	margin-top: 6rpx;
 	color: $uni-text-color-grey;
-	font-size: $uni-font-size-sm;
+	font-size: $uni-font-size-24;
 	overflow: hidden;
 }
 
@@ -411,7 +411,7 @@ $list-item-pd: $uni-spacing-col-lg $uni-spacing-row-lg;
 
 .uni-list-item__extra-text {
 	color: $uni-text-color-grey;
-	font-size: $uni-font-size-sm;
+	font-size: $uni-font-size-24;
 }
 .uni-ellipsis-1 {
 	/* #ifndef APP-NVUE */

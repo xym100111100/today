@@ -5,7 +5,7 @@
 			<view>
 				<myStatusBar />
 				<view class="header__content">
-					<view class="title font-size-lg">
+					<view class="title font-size-32">
 						排号
 					</view>
 
@@ -24,10 +24,10 @@
 
 			<view class="list  p-20">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-extra-ll">
+					<view class="text-color-black-3 font-size-36">
 						B0234
 					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						排队中
 					</view>
 				</view>
@@ -47,10 +47,10 @@
 
 			<view class="list  p-20">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-extra-ll">
+					<view class="text-color-black-3 font-size-36">
 						B0234
 					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						排队中
 					</view>
 				</view>
@@ -69,10 +69,10 @@
 
 			<view class="list  p-20">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-extra-ll">
+					<view class="text-color-black-3 font-size-36">
 						B0234
 					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						排队中
 					</view>
 				</view>
@@ -91,33 +91,10 @@
 
 			<view class="list  p-20">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-extra-ll">
+					<view class="text-color-black-3 font-size-36">
 						B0234
 					</view>
-					<view class="text-color-orange font-size-lg">
-						排队中
-					</view>
-				</view>
-				<view class="">
-					<text>排号时间：</text><text>2020-12-23 20:22:00</text>
-				</view>
-				<view class="list-item">
-					<view class="">
-						等待人数：23432人
-					</view>
-					<view class="cancel">
-						取消排号
-					</view>
-				</view>
-			</view>
-
-
-			<view class="list  p-20">
-				<view class="list-item mb-10">
-					<view class="text-color-black font-size-extra-ll">
-						B0234
-					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						排队中
 					</view>
 				</view>
@@ -137,10 +114,10 @@
 
 			<view class="list  p-20">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-extra-ll">
+					<view class="text-color-black-3 font-size-36">
 						B0234
 					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						排队中
 					</view>
 				</view>
@@ -158,14 +135,12 @@
 			</view>
 
 
-
-
 			<view class="list  p-20">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-extra-ll">
+					<view class="text-color-black-3 font-size-36">
 						B0234
 					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						排队中
 					</view>
 				</view>
@@ -187,10 +162,35 @@
 
 			<view class="list  p-20">
 				<view class="list-item mb-10">
-					<view class="text-color-black font-size-extra-ll">
+					<view class="text-color-black-3 font-size-36">
+						B0234
+					</view>
+					<view class="text-color-orange-FA6400 font-size-32">
+						排队中
+					</view>
+				</view>
+				<view class="">
+					<text>排号时间：</text><text>2020-12-23 20:22:00</text>
+				</view>
+				<view class="list-item">
+					<view class="">
+						等待人数：23432人
+					</view>
+					<view class="cancel">
+						取消排号
+					</view>
+				</view>
+			</view>
+
+
+
+
+			<view class="list  p-20">
+				<view class="list-item mb-10">
+					<view class="text-color-black-3 font-size-36">
 						awgbasdjnk
 					</view>
-					<view class="text-color-orange font-size-lg">
+					<view class="text-color-orange-FA6400 font-size-32">
 						排队中
 					</view>
 				</view>
@@ -213,7 +213,7 @@
 					<view class="icon">
 		
 					</view>
-					<view class="text-color-black font-size-lg">
+					<view class="text-color-black-3 font-size-32">
 						签到打卡
 					</view>
 					<image @tap="closePopup('cancel')" class="icon" src="../../static/images/commen/close.png" mode=""></image>

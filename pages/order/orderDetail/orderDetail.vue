@@ -8,7 +8,7 @@
 					<view class="title">
 
 						<image @tap="goBack" src="../../../static/images/commen/goBack.png" mode="" style="height: 56rpx;width: 56rpx;"></image>
-						<view class="font-size-lg">
+						<view class="font-size-32">
 							订单详情
 						</view>
 						<view style="height: 56rpx;width: 56rpx;">
@@ -21,11 +21,11 @@
 		</view>
 		<view class="main" :style="paddingTop">
 			<view class="title">
-				<view class="left font-size-lg text-color-base">
+				<view class="left font-size-32 text-color-F3433D">
 					订单状态
 				</view>
 				<view class="right" @tap="openPopup('record')">
-					<text class="font-size-ll">记录</text>
+					<text class="font-size-30">记录</text>
 					<image src="../../../static/images/commen/forward.png" style="height: 20rpx; width: 20rpx; padding-left: 10rpx;"
 					 mode=""></image>
 				</view>
@@ -34,42 +34,42 @@
 			<view class="content  ">
 
 				<view class="item ">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						互市名称
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
 				<view class="item">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						商户
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
 				<view class="item">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						组长
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
 				<view class="item">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						互助社
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
 				<view class="item">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						时间
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
@@ -77,42 +77,42 @@
 
 			<view class="content">
 				<view class="item">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						边民
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
 				<view class="item">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						商品
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
 				<view class="item">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						单价
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
 				<view class="item">
-					<view class="font-size-lg">
+					<view class="font-size-32">
 						数量
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
 				<view class="item">
-					<view class="font-size-lg ">
+					<view class="font-size-32 ">
 						金额
 					</view>
-					<view class="font-size-lg text-color-black">
+					<view class="font-size-32 text-color-black-3">
 						东兴市场
 					</view>
 				</view>
@@ -131,7 +131,7 @@
 					<view class="icon">
 
 					</view>
-					<view class="text-color-black font-size-lg">
+					<view class="text-color-black-3 font-size-32">
 						状态变更记录
 					</view>
 					<image @tap="closePopup('record')" class="icon" src="../../../static/images/commen/close.png" mode=""></image>
