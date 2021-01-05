@@ -13,7 +13,7 @@
 		</view>
 		<view class="main">
 			<view class="main__date">
-				2020年12月20日
+				2020年12月20日东兴市场
 			</view>
 			<view class="main__content-list">
 				<view class="item">
@@ -161,7 +161,6 @@
 
 			&__date {
 				margin: 20rpx;
-				width: 244rpx;
 				height: 44rpx;
 				font-size: 32rpx;
 				font-weight: 500;

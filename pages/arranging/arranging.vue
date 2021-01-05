@@ -38,7 +38,7 @@
 					<view class="">
 						等待人数：23432人
 					</view>
-					<view class="cancel">
+					<view class="cancel" @tap="openPopup('cancel')">
 						取消排号
 					</view>
 				</view>
@@ -206,12 +206,31 @@
 					</view>
 				</view>
 			</view>
-
-
-
-
-
 		</view>
+		<uni-popup ref="cancel" type="center">
+			<view class="bm-popup" style="width: 600rpx;">
+				<view class="popup-title">
+					<view class="icon">
+		
+					</view>
+					<view class="text-color-black font-size-lg">
+						签到打卡
+					</view>
+					<image @tap="closePopup('cancel')" class="icon" src="../../static/images/commen/close.png" mode=""></image>
+				</view>
+				<view class="content">
+					
+				</view>
+				<view class="btn">
+					<view class="">
+						返回
+					</view>
+					<view class="">
+						确定
+					</view>
+				</view>
+			</view>
+		</uni-popup>
 	</view>
 </template>
 
@@ -281,6 +300,12 @@
 				setTimeout(() => {
 					uni.stopPullDownRefresh()
 				}, 2000)
+			},
+			openPopup(val) {
+				this.$refs[val].open()
+			},
+			closePopup(val) {
+				this.$refs[val].close()
 			},
 			changeSwitch(index) {
 				this.switchData.forEach(item => {
@@ -377,11 +402,13 @@
 			}
 
 		}
-
-
-
-
-
-
+	}
+	
+	.bm-popup {
+		.content {
+			
+	
+		}
+	
 	}
 </style>
