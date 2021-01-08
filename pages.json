@@ -91,7 +91,17 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "pages/index2/index2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+               "enablePullDownRefresh": true,
+               "navigationStyle": "custom"
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "today",
@@ -114,6 +124,11 @@
 			"iconPath": "static/images/commen/tab/index2.png",
 			"selectedIconPath": "static/images/commen/tab/index.png",
 			"text": "首页"
+		}, {
+			"pagePath": "pages/index2/index2",
+			"iconPath": "static/images/commen/tab/arranging2.png",
+			"selectedIconPath": "static/images/commen/tab/arranging.png",
+			"text": "第二个"
 		}, {
 			"pagePath": "pages/arranging/arranging",
 			"iconPath": "static/images/commen/tab/arranging2.png",

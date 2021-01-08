@@ -3,7 +3,7 @@
 		<view class="top mb-50 ">
 			<view class="top__left">
 				<image class="icon" src="../../../static/images/index/account.png" mode="widthFix" />
-				<text class="username">组名</text>
+				<text class="username">商户名</text>
 			</view>
 			<view @click="openPopup('rule')" class="top__right">
 				<image class="icon" src="../../../static/images/index/rule.png" mode="widthFix" />

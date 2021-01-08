@@ -9,6 +9,7 @@
 				</view>
 				<generalHeader v-if="showHeader =='generalHeader'" ></generalHeader>
 				<groupHeader  v-if="showHeader =='groupHeader'"> </groupHeader>
+				<merchantHeader  v-if="showHeader =='merchantHeader'"> </merchantHeader>
 			</view>
 			
 		</view>
@@ -89,19 +90,21 @@
 	import uniPopup from '@/components/uni-popup/uni-popup.vue'
 	import generalHeader from'./component/generalHeader.vue'
 	import groupHeader from'./component/groupHeader.vue'
+	import merchantHeader from'./component/merchantHeader.vue'
 
 	export default {
 		components: {
 			myStatusBar,
 			uniPopup,
 			generalHeader,
-			groupHeader
+			groupHeader,
+			merchantHeader
 		},
 
 		data() {
 			return {
 				calculationHeight: 'height:540rpx',
-				showHeader:'groupHeader'
+				showHeader:'merchantHeader'
 			};
 		},
 		computed: {
